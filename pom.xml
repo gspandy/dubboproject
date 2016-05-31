@@ -21,6 +21,8 @@
   	<Jackson.version>2.7.3</Jackson.version>
   	<mysql.jdbc.version>5.1.38</mysql.jdbc.version>
   	<dubbo.version>2.5.3</dubbo.version>
+  	<commons.collections.version>4.0</commons.collections.version>
+  	<commons.lang.version>3.4</commons.lang.version>
   </properties>
   
   <dependencyManagement>
@@ -156,6 +158,19 @@
 			<version>${mysql.jdbc.version}</version>
 		</dependency>
 		
+		<!-- apache commons -->
+		<dependency>
+		     <groupId>org.apache.commons</groupId>
+   			 <artifactId>commons-collections4</artifactId>
+		     <version>${commons.collections.version}</version>
+		</dependency>
+		
+		<dependency>
+			 <groupId>org.apache.commons</groupId>
+			 <artifactId>commons-lang3</artifactId>
+			 <version>${commons.lang.version}</version>
+		</dependency>
+		
 	</dependencies>
   </dependencyManagement>
   
@@ -176,5 +191,8 @@
     <module>dubbo-service</module>
     <module>dubbo</module>
     <module>dubbo-service1</module>
+    <module>dubbo-service-wx</module>
+    <module>wx-service</module>
+    <module>itgo-tool</module>
   </modules>
 </project>

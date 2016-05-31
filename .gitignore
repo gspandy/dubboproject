@@ -5,3 +5,10 @@
 /dubbo-service/.tern-project
 /.project
 /dubbo-service/target
+/wx-service/.settings
+/wx-service/.classpath
+/wx-service/.tern-project
+/wx-service/.project
+/itgo-tool/.project
+/itgo-tool/.settings
+/itgo-tool/.classpath
