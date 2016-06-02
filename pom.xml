@@ -9,6 +9,7 @@
   <description>dubbo服务</description>
   
   <properties>
+  	<itgo-version>1.0.0</itgo-version>
   	<file_encoding>UTF-8</file_encoding>
   	<project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
   	<junit.version>4.12</junit.version>
@@ -183,6 +184,12 @@
 		    <version>${log4j2.version}</version>
 		  </dependency>
 		
+		 <dependency>
+		 	  <groupId>com.itgo</groupId>
+			  <artifactId>itgo-interfaces</artifactId>
+			  <version>${itgo-version}</version>
+		 </dependency>
+		
 	</dependencies>
   </dependencyManagement>
   
@@ -201,10 +208,8 @@
   
   <modules>
     <module>dubbo-service</module>
-    <module>dubbo</module>
-    <module>dubbo-service1</module>
-    <module>dubbo-service-wx</module>
     <module>wx-service</module>
     <module>itgo-tool</module>
+    <module>itgo-interfaces</module>
   </modules>
 </project>

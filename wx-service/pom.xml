@@ -16,6 +16,7 @@
    <properties>
   	<zookeeper.version>3.4.8</zookeeper.version>
   	<curator.version>2.6.0</curator.version>
+  	<jackson.version>2.7.3</jackson.version>
   </properties>
   
   <dependencies>
@@ -114,6 +115,24 @@
 		    <groupId>org.apache.logging.log4j</groupId>
 		    <artifactId>log4j-core</artifactId>
 		  </dependency>
+		  
+		  <!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		  
     </dependencies>
   <build>
     <finalName>wx-service</finalName>
