@@ -20,4 +20,11 @@ public interface MrgSystemAuthentication extends Authentication {
 	 * @return 认证成功返回true 否则返回false
 	 */
 	boolean auth(Map<String, String> params);
+	
+	/**
+	 * 用户注册
+	 * @param params 包涵用户的注册信息
+	 * @return 0注册失败 , 1注册成功
+	 */
+	String register(Map<String, String> params);
 }

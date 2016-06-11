@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.itgo.mxsm.mrgsys.MrgSystemAuthentication;
 
-public class MrgSysAuthentication implements MrgSystemAuthentication {
+public class MrgSysAuthenticationImpl implements MrgSystemAuthentication {
 
 	@Override
 	public boolean auth(Object obj) {
@@ -30,6 +30,12 @@ public class MrgSysAuthentication implements MrgSystemAuthentication {
 	public boolean auth(Map<String, String> params) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String register(Map<String, String> params) {
+		// TODO Auto-generated method stub
+		return "aaaaaa";
 	}
 
 }
