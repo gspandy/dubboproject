@@ -27,4 +27,18 @@ public interface MrgSystemAuthentication extends Authentication {
 	 * @return 0注册失败 , 1注册成功
 	 */
 	String register(Map<String, String> params);
+	
+	/**
+	 * 来源数据类型为xml认证
+	 * @param xml
+	 * @return
+	 */
+	boolean authByXML(String xml);
+	
+	/**
+	 * 来源数据类型为JSON认证
+	 * @param xml
+	 * @return
+	 */
+	boolean authByJSON(String xml);
 }

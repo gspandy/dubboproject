@@ -1,0 +1,26 @@
+.itgo-footer{
+	position: fixed;
+	bottom:0px;
+	left:auto;
+	right:auto;
+	background-color: #fff;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 3px;
+}
+.itgo-main-container{
+  position: relative;
+  margin-top: -10px;
+  height: 100%;
+  background-image: url(../itgoimage/hero-bg.jpg);
+  border-bottom: 1px solid #ccc;
+}
+
+.itgo-jumbotron{
+	margin-left: 0px;
+	margin-right: 0px;
+	background: rgba(0, 0, 0, 0);
+	color: #fff;
+}
+
+

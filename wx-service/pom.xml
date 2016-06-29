@@ -132,7 +132,13 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		  
+		
+		<!-- 接口 -->
+		<dependency>
+			<groupId>com.itgo</groupId>
+			<artifactId>itgo-interfaces</artifactId>
+		</dependency>
+		
     </dependencies>
   <build>
     <finalName>wx-service</finalName>

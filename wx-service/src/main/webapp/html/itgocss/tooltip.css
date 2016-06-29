@@ -1,0 +1,69 @@
+.itgo-tooltip-bottom{
+    display: inline-block;
+    margin: 0px 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.42857;
+    opacity: 1;
+    position: absolute;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    white-space: normal;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    z-index: 1070;
+    padding: 5px 0;
+    left: 50%;
+    margin-left: -100px;
+    bottom: 100%;
+}
+
+
+.itgo-tooltip-arrow-bottom{
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-width: 5px 5px 0 5px;
+    border-style: solid;
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    bottom: 0;
+}
+
+.itgo-tooltip-inner{
+    border-radius: 4px;
+    color: #fff;
+    max-width: 200px;
+    padding: 3px 8px;
+    text-align: start;
+}
+
+.itgo-tooltip-inner.green{
+    background-color: #458746;
+}
+
+.itgo-tooltip-arrow-bottom.green{
+    border-top-color: #458746;
+}
+
+.itgo-tooltip-inner.red{
+    background-color: #B94846;
+}
+
+.itgo-tooltip-arrow-bottom.red{
+    border-top-color: #B94846;
+}
+
+.itgo-tooltip-inner.blue{
+    background-color: #8DB2D6;
+}
+
+.itgo-tooltip-arrow-bottom.blue{
+    border-top-color: #8DB2D6;
+}

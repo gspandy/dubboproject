@@ -5,9 +5,9 @@
 <web-app id="WebApp_1464872274877">
   <display-name>微信服务端</display-name>
   
-    <context-param>  
+   <context-param>  
         <param-name>contextConfigLocation</param-name>  
-        <param-value>classpath:spring-mybatis.xml</param-value>  
+        <param-value>classpath:spring/spring-mybatis.xml</param-value>  
     </context-param>
   
    <listener>
@@ -20,7 +20,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath*:applicationContext-SpringMVC.xml</param-value>
+            <param-value>classpath*:spring/applicationContext-SpringMVC.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -29,5 +29,10 @@
         <servlet-name>SpringMVC-Servlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+   
+    
+  	<welcome-file-list>
+  		<welcome-file>html/index.html</welcome-file>
+  	</welcome-file-list>
   
 </web-app>

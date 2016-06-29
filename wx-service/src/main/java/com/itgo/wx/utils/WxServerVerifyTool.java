@@ -23,7 +23,7 @@ public class WxServerVerifyTool {
 	public static final String 	NONCE = "nonce";
 	public static final String 	TOKEN = "token";
 	
-	static final Logger logger = LogManager.getLogger(WxServerVerifyTool.class);
+	protected static final Logger logger = LogManager.getLogger(WxServerVerifyTool.class);
 	
 	/**
 	 * 校验微信服务器的有效性
