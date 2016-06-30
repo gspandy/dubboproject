@@ -24,7 +24,7 @@
 	<mvc:resources location="/html/js/" mapping="/html/js/**" />
 	<mvc:resources location="/html/" mapping="/html/*.html" />
 	
-	
+	 
 	
 	<!-- SpringMVC 模板 -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -59,21 +59,14 @@
 	</bean>
 	
 	<!-- 拦截器 -->
-	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-		<property name="interceptors">
-			<list>
-				<ref bean="pageInterceptor"/>
-			</list>
-		</property>
-	</bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<ref bean="pageInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
-	<!-- <bean id="resourceHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
-		<property name="interceptors">
-			<list>
-				<ref bean="pageInterceptor"/>
-			</list>
-		</property>	
-	</bean> -->
+
 	
 	<bean id="pageInterceptor" class="org.mxsm.itgo.spring.interceptor.PageInterceptor" scope="prototype">
 	
