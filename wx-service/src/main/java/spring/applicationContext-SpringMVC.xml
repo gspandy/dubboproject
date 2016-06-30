@@ -14,7 +14,6 @@
 	<context:component-scan base-package="com.itgo.*"/>
 	<!-- 开启注解 -->
     <mvc:annotation-driven />
-	
 	<!-- 静态资源 -->
 	<mvc:resources location="/html/css/" mapping="/html/css/**" />
 	<mvc:resources location="/html/fonts/" mapping="/html/fonts/**" />
@@ -24,6 +23,8 @@
 	<mvc:resources location="/html/itgojs/" mapping="/html/itgojs/**" />
 	<mvc:resources location="/html/js/" mapping="/html/js/**" />
 	<mvc:resources location="/html/" mapping="/html/*.html" />
+	
+	
 	
 	<!-- SpringMVC 模板 -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -56,4 +57,28 @@
 			</map>
 		</property>
 	</bean>
+	
+	<!-- 拦截器 -->
+	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="pageInterceptor"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- <bean id="resourceHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
+		<property name="interceptors">
+			<list>
+				<ref bean="pageInterceptor"/>
+			</list>
+		</property>	
+	</bean> -->
+	
+	<bean id="pageInterceptor" class="org.mxsm.itgo.spring.interceptor.PageInterceptor" scope="prototype">
+	
+	</bean>
+	
+	
+	
 </beans>

@@ -7,9 +7,7 @@
     <artifactId>itgo-parent</artifactId>
     <version>1.0.0</version>
   </parent>
-  <groupId>com.itgo</groupId>
   <artifactId>dubbo-service</artifactId>
-  <version>1.0.0</version>
   <packaging>war</packaging>
   <name>dubbo-service</name>
   <url>http://maven.apache.org</url>
@@ -17,15 +15,15 @@
   <properties>
   	<zookeeper.version>3.4.8</zookeeper.version>
   	<curator.version>2.6.0</curator.version>
-  	
+  	<javassist.version>3.12.1.GA</javassist.version>
   </properties>
   
   <dependencies>
   
 	<dependency>
-    <groupId>com.github.sgroschupf</groupId>
-    <artifactId>zkclient</artifactId>
-    <version>0.1</version>
+	    <groupId>com.github.sgroschupf</groupId>
+	    <artifactId>zkclient</artifactId>
+	    <version>0.1</version>
 	</dependency>  
   
     <dependency>
@@ -128,6 +126,12 @@
 		<dependency>
 			<groupId>com.itgo</groupId>
 			<artifactId>itgo-interfaces</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>${javassist.version}</version>
 		</dependency>
   </dependencies>
   <build>

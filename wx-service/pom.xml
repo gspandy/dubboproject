@@ -7,9 +7,7 @@
     <artifactId>itgo-parent</artifactId>
     <version>1.0.0</version>
   </parent>
-  <groupId>com.itgo</groupId>
   <artifactId>wx-service</artifactId>
-  <version>1.0.0</version>
   <packaging>war</packaging>
   <name>wx-service Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -17,6 +15,7 @@
   	<zookeeper.version>3.4.8</zookeeper.version>
   	<curator.version>2.6.0</curator.version>
   	<jackson.version>2.7.3</jackson.version>
+  	<javassist.version>3.12.1.GA</javassist.version>
   </properties>
   
   <dependencies>
@@ -120,17 +119,14 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>${jackson.version}</version>
 		</dependency>
 		
 		<!-- 接口 -->
@@ -139,6 +135,18 @@
 			<artifactId>itgo-interfaces</artifactId>
 		</dependency>
 		
+		<dependency>
+		    <groupId>javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>${javassist.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-api</artifactId>
+		    <version>7.0</version>
+		    <scope>provided</scope>
+		</dependency>
     </dependencies>
   <build>
     <finalName>wx-service</finalName>
