@@ -60,8 +60,20 @@
 	
 	<!-- 拦截器 -->
 	<mvc:interceptors>
+		<!-- 页面拦截器未登录页面不能直接访问 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/html/index.html"/>
+			<mvc:exclude-mapping path="/html/login.html"/>
+			<mvc:exclude-mapping path="/html/regester.html"/>
+			<mvc:exclude-mapping path="/html/js/*"/>
+			<mvc:exclude-mapping path="/html/css/**"/>
+			<mvc:exclude-mapping path="/html/fonts/**"/>
+			<mvc:exclude-mapping path="/html/image/**"/>
+			<mvc:exclude-mapping path="/html/itgocss/**"/>
+			<mvc:exclude-mapping path="/html/itgoimage/**"/>
+			<mvc:exclude-mapping path="/html/itgojs/**"/>
 			<ref bean="pageInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>

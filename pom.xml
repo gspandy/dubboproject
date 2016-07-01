@@ -211,5 +211,6 @@
     <module>wx-service</module>
     <module>itgo-tool</module>
     <module>itgo-interfaces</module>
+    <module>AAA</module>
   </modules>
 </project>

@@ -2,10 +2,12 @@ package com.itgo.wx.controller.user;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.mxsm.itgo.spring.interceptor.PageInterceptor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,10 +34,21 @@ public class LoginController extends LoginControllerBeforeAndAfter{
 		return null;
 	}
 	
-	@RequestMapping(path={"/login"}/*, method=RequestMethod.POST, consumes={"application/json"}*/,produces="application/json")
-	public JSONResponse login(@RequestParam Map<String, String> params){
+	/**
+	 * 登录
+	 * @param params
+	 * @return
+	 */
+	@RequestMapping(path={"/login"}, method=RequestMethod.POST, consumes={"application/json"},produces={"application/json"})
+	public JSONResponse login(@RequestParam Map<String, String> params, HttpSession session){
 		
-		System.out.println(params);
+		
+		
+		
+		
+		
+		//login success
+		session.setAttribute(PageInterceptor.LOGIN_FLAG_ST, true);
 		
 		return new JSONResponse();
 	}
