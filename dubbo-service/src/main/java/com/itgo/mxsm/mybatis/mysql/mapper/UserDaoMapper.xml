@@ -2,5 +2,11 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itgo.mxsm.mybatis.mysql.dao.UserDao">
-	
+	<insert id="addUser" parameterType="Map">
+		insert into manager 
+		  values 
+	    (#{mgr_id},#{org_id},#{mrg_code},#{mgr_name},
+	    #{mgr_pwd},#{mgr_loginname},#{mgr_logintime},
+	    #{status_cd},#{mgr_email},#{mgr_phone},#{mgr_remark})
+	</insert>
 </mapper>
