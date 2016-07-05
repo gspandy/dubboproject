@@ -25,7 +25,7 @@ import com.itgo.wx.web.resultcode.BaseCode;
 
 @Controller
 @RequestMapping("/user")
-public class LoginController{
+public class RegisterController {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
@@ -47,24 +47,7 @@ public class LoginController{
 		return response;
 	}
 	
-	/**
-	 * 登录
-	 * @param params
-	 * @return
-	 */
-	@RequestMapping(path={"/login"}, method=RequestMethod.POST, consumes={"application/json"},produces={"application/json"})
-	public JSONResponse userLogin(@RequestParam Map<String, String> params, HttpSession session){
-		
-		
-		
-		
-		
-		
-		//login success
-		session.setAttribute(PageInterceptor.LOGIN_FLAG_ST, true);
-		
-		return new JSONResponse();
-	}
+	
 	
 	
 }

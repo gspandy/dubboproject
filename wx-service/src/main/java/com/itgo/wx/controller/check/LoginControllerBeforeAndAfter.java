@@ -1,4 +1,4 @@
-package com.itgo.wx.controller.user.check;
+package com.itgo.wx.controller.check;
 
 import java.util.Map;
 

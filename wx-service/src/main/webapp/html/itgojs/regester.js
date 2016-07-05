@@ -47,8 +47,8 @@ var regester = {
 				contentType:'application/json',
 				dataType:'json',
 				type:'POST',
-				data:params,
-				url:'../user/register',
+				data:JSON.stringify(params),
+				url:'../user/register.do',
 				success:function(result){
 					console.log(result);
 				}
@@ -74,7 +74,7 @@ var regester = {
 					dataType:'json',
 					type:'POST',
 					data:params,
-					url:'http://127.0.0.1:8080/wx-service/user/register',
+					url:'../user/register.do',
 					success:function(result){
 						console.log(result);
 					}
