@@ -30,11 +30,11 @@ public class LoginController extends LoginControllerBeforeAndAfter{
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@RequestMapping(path="/register", method=RequestMethod.POST, consumes={"application/json"}, produces={"application/json"})
-	public JSONResponse userRegister(@RequestBody Map<String, String> params){
+	public JSONResponse userRegister(@RequestParam Map<String, String> params){
 		String result = null;
 		JSONResponse response = new JSONResponse();
 		
-		result = register(params);
+		//result = register(params);
 		
 		if(result == null){
 			response.setResultCode(BaseCode.FAIL.getCode());

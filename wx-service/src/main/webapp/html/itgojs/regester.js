@@ -43,20 +43,61 @@ var regester = {
 				                     .text('密码不一致!');
 				return;
 			}
-			
+			$.ajax({
+				contentType:'application/json',
+				dataType:'json',
+				type:'POST',
+				data:params,
+				url:'../user/register',
+				success:function(result){
+					console.log(result);
+				}
+			});
 			
 		});
 		
 		$(window).bind('keydown.itgo.registerBtn',function(e){
 			if(e.key == 'Enter'){
+				var params = {};
+				params.username = $("input[name='username']").val();
+				params.email = $("input[name='email']").val()+$('#emailDropdown').children().first().text();
+				params.password = $("input[name='password']").val();
+				var confirmPassword = $("input[name='confirmPassword']").val();
 				
+				if(params.password != confirmPassword){
+					$('#itgo-alert-info').removeClass('sr-only')
+					                     .text('密码不一致!');
+					return;
+				}
+				$.ajax({
+					contentType:'application/json',
+					dataType:'json',
+					type:'POST',
+					data:params,
+					url:'http://127.0.0.1:8080/wx-service/user/register',
+					success:function(result){
+						console.log(result);
+					}
+				});
 			}
 		});
 	},
 	passwordInputFocuse:function(){
 		 $("input[name='confirmPassword']").bind('focus.itgo.confirmPassword',function(){
 			 this.passwordConfirm = true;
-		 })
+		 }).bind('focusout.itgo.confirmPassword',function(){
+			 if(this.passwordConfirm){
+				 if($("input[name='password']").val() == $("input[name='confirmPassword']").val()){
+					 $('#itgo-alert-info').addClass('sr-only')
+					                      .text('');
+				 }else{
+					$('#itgo-alert-info').removeClass('sr-only')
+	                     			     .text('密码不一致!');
+				 }
+			 }
+			 this.passwordConfirm = false;
+		 });
+
 	}
 	
 }
