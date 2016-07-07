@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mxsm.itgo.spring.interceptor.PageInterceptor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +31,7 @@ public class LoginController{
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
-	@RequestMapping(path="/register.do", method=RequestMethod.POST, consumes={"application/json"}, produces={"application/json"})
+	/*@RequestMapping(path="/register.do", method=RequestMethod.POST, consumes={"application/json"}, produces={"application/json"})
 	public JSONResponse userRegister(@RequestBody Map<String, String> params){
 		String result = null;
 		JSONResponse response = new JSONResponse();
@@ -45,7 +47,7 @@ public class LoginController{
 		
 		
 		return response;
-	}
+	}*/
 	
 	/**
 	 * 登录
@@ -56,10 +58,7 @@ public class LoginController{
 	public JSONResponse userLogin(@RequestParam Map<String, String> params, HttpSession session){
 		
 		
-		
-		
-		
-		
+		//ClassPathXmlApplicationContext
 		//login success
 		session.setAttribute(PageInterceptor.LOGIN_FLAG_ST, true);
 		

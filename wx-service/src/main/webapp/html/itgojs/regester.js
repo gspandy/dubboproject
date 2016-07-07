@@ -37,7 +37,7 @@ var regester = {
 			params.email = $("input[name='email']").val()+$('#emailDropdown').children().first().text();
 			params.password = $("input[name='password']").val();
 			var confirmPassword = $("input[name='confirmPassword']").val();
-			
+			params.confirmPassword = confirmPassword;
 			if(params.password != confirmPassword){
 				$('#itgo-alert-info').removeClass('sr-only')
 				                     .text('密码不一致!');
@@ -51,6 +51,25 @@ var regester = {
 				url:'../user/register.do',
 				success:function(result){
 					console.log(result);
+				},
+				xhr:function(){
+					var http_request;
+					if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+					    http_request = new XMLHttpRequest();
+					} else if (window.ActiveXObject) { // IE
+					    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					http_request.upload.addEventListener("progress", function (evt) {
+						//alert(evt.lengthComputable + "  " + evt.total);
+			            if (evt.lengthComputable) {
+			                var percentComplete = evt.loaded / evt.total;
+			                $("#test").attr("style","width: "+Math.round(percentComplete * 100)+"%;").text(Math.round(percentComplete * 100)+"%");
+			                console.log(Math.round(percentComplete * 100) + "%");
+			            }
+			        });
+					
+					
+					return http_request;
 				}
 			});
 			
@@ -63,7 +82,7 @@ var regester = {
 				params.email = $("input[name='email']").val()+$('#emailDropdown').children().first().text();
 				params.password = $("input[name='password']").val();
 				var confirmPassword = $("input[name='confirmPassword']").val();
-				
+				params.confirmPassword = confirmPassword;
 				if(params.password != confirmPassword){
 					$('#itgo-alert-info').removeClass('sr-only')
 					                     .text('密码不一致!');

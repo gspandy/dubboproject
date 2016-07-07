@@ -54,6 +54,7 @@
 				<entry key="json" value="application/json"/>
 				<entry key="xml" value="application/xml"/>
 				<entry key="html" value="text/html"/>
+				<entry key="text" value="text/plain"/>
 			</map>
 		</property>
 	</bean>

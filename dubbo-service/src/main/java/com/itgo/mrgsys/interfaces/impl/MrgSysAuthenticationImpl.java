@@ -46,10 +46,7 @@ public class MrgSysAuthenticationImpl extends AbstractMrgSysAuthentication {
 	public String register(Map<String, String> params) {
 		// TODO Auto-generated method stub
 		int result = userDao.addUser(params);
-		
-		
-		
-		return "aaaaaa";
+		return result > 0? "1":"0";
 	}
 
 	@Override
