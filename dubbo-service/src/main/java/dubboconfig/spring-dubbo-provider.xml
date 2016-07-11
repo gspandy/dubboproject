@@ -25,7 +25,6 @@
     <!--   声明需要暴露的服务接口 -->
     <dubbo:service interface="com.itgo.mxsm.mrgsys.MrgSystemAuthentication" ref="mrgSystemAuthentication" />
  	
- 	<bean id="mrgSystemAuthentication" class="com.itgo.mrgsys.interfaces.impl.MrgSysAuthenticationImpl" scope="singleton"></bean>
  
 </beans>
  
