@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alibaba.dubbo.container.page.Page;
 import com.itgo.wx.controller.check.LoginControllerBeforeAndAfter;
 import com.itgo.wx.service.interfaces.impl.UserRegisterService;
 import com.itgo.wx.web.response.JSONResponse;
@@ -31,15 +32,24 @@ import com.itgo.wx.web.resultcode.RegisterCode;
 @RequestMapping("/user")
 public class RegisterController extends UserRegisterService<JSONResponse>{
 
-	protected final Log logger = LogFactory.getLog(getClass());
+	//protected final Log logger = LogFactory.getLog(getClass());
 
-	@RequestMapping(path="/register.do", method=RequestMethod.POST,  produces={"application/json"})
-	public JSONResponse userRegister(HttpServletRequest requet, HttpServletResponse re){
+	@RequestMapping(path="/register.do", method=RequestMethod.POST, consumes={"application/json"},  produces={"application/json"})
+	public JSONResponse userRegister(@RequestBody Map<String, String> params, HttpServletRequest request){
+		params.put("mgr_id", "1");
+		RegisterCode code = registerService(params);
+		JSONResponse response = after(code);
 		
-		//RegisterCode code = registerService(params);
-		//JSONResponse response = after(code);
-		//return response;
-		return new JSONResponse();
+		HttpSession session = request.getSession();
+		if(RegisterCode.REGISTER_SUCCESS.code().equals(response.getResultCode())){
+			session.setAttribute(PageInterceptor.LOGIN_FLAG_ST, PageInterceptor.LOGIN_SUCCESS);
+		}
+		String callbackURL = request.getScheme()+"://"+request.getServerName()+":"+
+		                     request.getServerPort()+request.getContextPath()+"/"+
+		                     "html/home.html";
+		response.setObj(callbackURL);
+		
+		return response;
 	}
 	
 	@Override

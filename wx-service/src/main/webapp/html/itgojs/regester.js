@@ -44,32 +44,24 @@ var regester = {
 				return;
 			}
 			$.ajax({
-				contentType:'application/json',
-				dataType:'json',
-				type:'POST',
 				data:JSON.stringify(params),
 				url:'../user/register.do',
-				success:function(result){
-					console.log(result);
+				beforeSend:function(jqXHR, settings){
+					$('#registerBtn').find('i').removeClass().addClass("fa fa-spinner fa-pulse  fa-fw");
 				},
-				xhr:function(){
-					var http_request;
-					if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-					    http_request = new XMLHttpRequest();
-					} else if (window.ActiveXObject) { // IE
-					    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+				success:function(result){
+					console.log(result.JSONResponse.resultCode);
+					if(result && result.JSONResponse.resultCode == "0000"){
+						window.location.href = result.JSONResponse.obj;
 					}
-					http_request.upload.addEventListener("progress", function (evt) {
-						//alert(evt.lengthComputable + "  " + evt.total);
-			            if (evt.lengthComputable) {
-			                var percentComplete = evt.loaded / evt.total;
-			                $("#test").attr("style","width: "+Math.round(percentComplete * 100)+"%;").text(Math.round(percentComplete * 100)+"%");
-			                console.log(Math.round(percentComplete * 100) + "%");
-			            }
-			        });
-					
-					
-					return http_request;
+				},
+				complete:function(jqXHR,textStatus){
+					$('#registerBtn').find('i').removeClass().addClass("fa fa-registered");
+				},
+				error:function(jqXHR,textStatus,errorThrown){
+					var error = textStatus.toUpperCase()+"("+jqXHR.status+"):"+errorThrown;
+					$('#itgo-alert-info').removeClass('sr-only')
+                    .text(error);
 				}
 			});
 			
@@ -89,13 +81,24 @@ var regester = {
 					return;
 				}
 				$.ajax({
-					contentType:'application/json',
-					dataType:'json',
-					type:'POST',
-					data:params,
+					data:JSON.stringify(params),
 					url:'../user/register.do',
+					beforeSend:function(jqXHR, settings){
+						//<i class="fa fa-spinner fa-pulse  fa-fw"></i>
+						$('#registerBtn').find('i').removeClass().addClass("fa fa-spinner fa-pulse  fa-fw");
+					},
 					success:function(result){
-						console.log(result);
+						if(result && result.JSONResponse.resultCode == "0000"){
+							window.location.href = result.JSONResponse.obj;
+						}
+					},
+					complete:function(jqXHR,textStatus){
+						$('#registerBtn').find('i').removeClass().addClass("fa fa-registered");
+					},
+					error:function(jqXHR,textStatus,errorThrown){
+						var error = textStatus.toUpperCase()+"("+jqXHR.status+"):"+errorThrown;
+						$('#itgo-alert-info').removeClass('sr-only')
+	                    .text(error);
 					}
 				});
 			}

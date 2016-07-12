@@ -40,6 +40,10 @@ public class UserRegisterService<K> extends AbstractUserService<RegisterCode, K>
 			throw new IllegalArgumentException("参数错误");
 		}
 		Map<String, String> params = (Map<String, String>)obj;
+		if(logger.isInfoEnabled()){
+			logger.info("注册提交的参数："+params);
+		}
+		
 		String username = params.get("username");
 		if(StringUtils.isEmpty(username) || username.trim().length() == 0){
 			if(logger.isWarnEnabled()){

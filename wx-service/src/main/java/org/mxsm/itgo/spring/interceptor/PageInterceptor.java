@@ -17,6 +17,8 @@ public class PageInterceptor extends HandlerInterceptorAdapter{
 
 	public final static String LOGIN_FLAG_ST = "loginflag";
 	
+	public final static boolean LOGIN_SUCCESS = true;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
