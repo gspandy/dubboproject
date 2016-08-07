@@ -17,6 +17,7 @@
 					<img src="itgoimage/logo-horizontal.png">
 				</h3>
 				<p class="text-center">登录你的账号</p>
+				<div class="alert alert-danger text-center sr-only" role="alert" id="itgo-alert-info"></div>
 				<hr class="clean" />
 				<form>
 					<div class="form-group">
@@ -43,7 +44,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<button type="button" class="btn btn-success form-control"><i class="fa fa-sign-in" aria-hidden="true"></i>登录</button>
+						<button type="button" class="btn btn-success form-control" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>登录</button>
 					</div>
 					<hr>
 					<p class="text-center text-gray">还没有账号?</p>
@@ -55,5 +56,10 @@
 			</div>
 		</div>
 	</div>
+<!-- common js start-->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="itgojs/AjaxSetting.js"></script>
+<!-- common js end -->
+<script type="text/javascript" src="itgojs/login.js"></script>
 </body>
 </html>

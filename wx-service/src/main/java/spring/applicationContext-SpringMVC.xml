@@ -76,6 +76,7 @@
 			<mvc:exclude-mapping path="/html/itgoimage/**"/>
 			<mvc:exclude-mapping path="/html/itgojs/**"/>
 			<mvc:exclude-mapping path="/user/register.do"/>
+			<mvc:exclude-mapping path="/user/login.do"/>
 			<ref bean="pageInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>

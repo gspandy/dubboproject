@@ -43,11 +43,11 @@ public class RegisterController extends UserRegisterService<JSONResponse>{
 		HttpSession session = request.getSession();
 		if(RegisterCode.REGISTER_SUCCESS.code().equals(response.getResultCode())){
 			session.setAttribute(PageInterceptor.LOGIN_FLAG_ST, PageInterceptor.LOGIN_SUCCESS);
+			String callbackURL = request.getScheme()+"://"+request.getServerName()+":"+
+                    request.getServerPort()+request.getContextPath()+"/"+
+                    "html/home.html";
+			response.setObj(callbackURL);
 		}
-		String callbackURL = request.getScheme()+"://"+request.getServerName()+":"+
-		                     request.getServerPort()+request.getContextPath()+"/"+
-		                     "html/home.html";
-		response.setObj(callbackURL);
 		
 		return response;
 	}

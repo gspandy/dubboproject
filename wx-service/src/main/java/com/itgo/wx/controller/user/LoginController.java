@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itgo.wx.controller.check.LoginControllerBeforeAndAfter;
+import com.itgo.wx.service.interfaces.impl.UserLoginService;
 import com.itgo.wx.web.response.JSONResponse;
 import com.itgo.wx.web.resultcode.BaseCode;
+import com.itgo.wx.web.resultcode.LoginCode;
 
 /**
  * 登录控制器
@@ -27,43 +29,39 @@ import com.itgo.wx.web.resultcode.BaseCode;
 
 @Controller
 @RequestMapping("/user")
-public class LoginController{
+public class LoginController extends UserLoginService<JSONResponse>{
 
-	protected final Log logger = LogFactory.getLog(getClass());
-
-	/*@RequestMapping(path="/register.do", method=RequestMethod.POST, consumes={"application/json"}, produces={"application/json"})
-	public JSONResponse userRegister(@RequestBody Map<String, String> params){
-		String result = null;
-		JSONResponse response = new JSONResponse();
-		
-		//result = register(params);
-		
-		if(result == null){
-			response.setResultCode(BaseCode.FAIL.getCode());
-			response.setResultMessage(BaseCode.FAIL.getMessage());
-		}else{
-			
-		}
-		
-		
-		return response;
-	}*/
+	private HttpSession session;
 	
 	/**
 	 * 登录
 	 * @param params
 	 * @return
 	 */
-	@RequestMapping(path={"/login"}, method=RequestMethod.POST, consumes={"application/json"},produces={"application/json"})
+	@RequestMapping(path={"/login.do"}, method=RequestMethod.POST, consumes={"application/json"},produces={"application/json"})
 	public JSONResponse userLogin(@RequestParam Map<String, String> params, HttpSession session){
-		
-		
-		//ClassPathXmlApplicationContext
-		//login success
-		session.setAttribute(PageInterceptor.LOGIN_FLAG_ST, true);
-		
-		return new JSONResponse();
+		this.session = session;
+		LoginCode code = loginService(params);
+		return after(code);
 	}
 	
-	
+	@Override
+	public JSONResponse after(Object obj) {
+		// TODO Auto-generated method stub
+		JSONResponse response = new JSONResponse();
+		
+		if(!(obj instanceof LoginCode)){
+			if(logger.isErrorEnabled()){
+				logger.error("参数类型"+obj.getClass().getName()+", 应该为"+LoginCode.class.getName());
+			}
+			throw new IllegalArgumentException("参数错误");
+		}
+		if(session == null){
+			response.setResultCode(LoginCode.LOGIN_FAIL.code());
+			response.setResultMessage(LoginCode.LOGIN_FAIL.message());
+			return response;
+		}
+		
+		return null;
+	}
 }

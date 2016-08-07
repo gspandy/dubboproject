@@ -128,11 +128,6 @@
 			<artifactId>itgo-interfaces</artifactId>
 		</dependency>
 		
-		<dependency>
-		    <groupId>javassist</groupId>
-		    <artifactId>javassist</artifactId>
-		    <version>${javassist.version}</version>
-		</dependency>
   </dependencies>
   <build>
     <finalName>dubbo-service</finalName>

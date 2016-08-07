@@ -2,6 +2,7 @@ package com.itgo.wx.service.interfaces;
 
 import java.util.Map;
 
+import com.itgo.wx.web.resultcode.LoginCode;
 import com.itgo.wx.web.resultcode.RegisterCode;
 
 /**
@@ -18,5 +19,12 @@ public interface UserService {
 	 * @return 
 	 */
 	public RegisterCode registerService(Map<String, String> params);
+	
+	/**
+	 * 登录系统
+	 * @param params
+	 * @return
+	 */
+	public LoginCode loginService(Map<String, String> params);
 	
 }
