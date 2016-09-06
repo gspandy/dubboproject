@@ -7,7 +7,7 @@ var login={
 			var sendParam = {};
 			sendParam.username = $("input[name='username']").val();
 			sendParam.password = $("input[name='password']").val();
-			sendParam.remebered = $("input[name='remember']").prop('checked');
+			sendParam.remebered = $("input[name='remember']").prop('checked')?"true":"false";
 			console.log('send data:'+ JSON.stringify(sendParam));
 			$.ajax({
 				url:'../user/login.do',
@@ -18,6 +18,9 @@ var login={
 				success:function(result){
 					if(result && result.JSONResponse.resultCode == "0000"){
 						window.location.href = result.JSONResponse.obj;
+					}else{
+						$('#itgo-alert-info').removeClass('sr-only')
+	                    .text(result.JSONResponse.resultMessage);
 					}
 				},
 				complete:function(jqXHR,textStatus){

@@ -39,7 +39,10 @@ public class LoginController extends UserLoginService<JSONResponse>{
 	 * @return
 	 */
 	@RequestMapping(path={"/login.do"}, method=RequestMethod.POST, consumes={"application/json"},produces={"application/json"})
-	public JSONResponse userLogin(@RequestParam Map<String, String> params, HttpSession session){
+	public JSONResponse userLogin(@RequestBody Map<String, String> params, HttpSession session){
+		if(logger.isDebugEnabled()){
+			logger.debug("发送的参数========"+params);
+		}
 		this.session = session;
 		LoginCode code = loginService(params);
 		return after(code);
@@ -61,7 +64,9 @@ public class LoginController extends UserLoginService<JSONResponse>{
 			response.setResultMessage(LoginCode.LOGIN_FAIL.message());
 			return response;
 		}
-		
-		return null;
+		LoginCode result = (LoginCode)obj;
+		response.setResultCode(result.code());
+		response.setResultMessage(result.message());
+		return response;
 	}
 }

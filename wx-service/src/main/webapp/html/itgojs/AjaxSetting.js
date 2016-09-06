@@ -4,7 +4,7 @@ var Defaultoptions = {
 	beforeSend:function(jqXHR, settings){
 		
 	},
-	cache:true,
+	cache:false,
 	complete:function(jqXHR,textStatus){
 		if(textStatus != "success"){
 			
